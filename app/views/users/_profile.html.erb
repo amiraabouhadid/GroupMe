@@ -1,0 +1,35 @@
+<div class="text-light profile">
+<div class="profile-header text-center mb-3">
+  <%= gravatar_image_tag(current_user.email, alt: 'Profile Picture', class: ' rounded rounded-circle my-4 ') %>
+  <br>
+  <h5 class=""><%= current_user.name %></h5>
+  <br>
+</div>
+<div class="profile-links-container">
+  <div class="row  d-flex align-items-baseline">
+    <i class="fas fa-university text-light border rounded-circle p-2"></i>
+    <%= link_to 'Courses', courses_path, class:'text-light ml-3 '%>
+    <hr class="profile-links-hr w-100 ml-5">
+  </div>
+  <div class="row  d-flex align-items-baseline">
+    <i class="fas fa-school text-light border rounded-circle p-2"></i>
+    <%= link_to 'External Courses', courses_path(:ungrouped => true), class:'text-light ml-3 '%>
+    <hr class="profile-links-hr w-100 ml-5">
+  </div>
+  <div class="row  d-flex align-items-baseline">
+    <i class="fas fa-user-friends text-light border rounded-circle p-2"></i>
+    <%= link_to 'Groups', groups_path, class:'text-light   ml-3'%>
+    <hr class="profile-links-hr w-100 ml-5">
+  </div>
+  <div class="row  d-flex align-items-baseline">
+    <i class="fas fa-sign-out-alt text-light border rounded-circle p-2"></i>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:'text-light   ml-3'%>
+
+  </div>
+
+</div>
+
+
+
+
+</div>
