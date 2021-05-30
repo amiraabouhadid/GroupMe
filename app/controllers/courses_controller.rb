@@ -3,7 +3,13 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   # GET /courses or /courses.json
-  def index; end
+  def index
+    @courses = if params['ungrouped']
+                 Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
+               else
+                 Course.where(author: current_user).includes(:courses_groups).where.not(courses_groups: { id: nil })
+               end
+  end
 
   # GET /courses/1 or /courses/1.json
   def show; end

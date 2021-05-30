@@ -30,3 +30,9 @@
   border-bottom: 1px;
   opacity: 0.3;
 }
+.courses-header{
+  height: 100vh;
+  background-image: linear-gradient(to top right, var(--main), #0b1a2c);
+  background-position: center;
+  background-repeat: no-repeat;
+}
