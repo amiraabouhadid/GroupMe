@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+:root {
+  --main: #3778c2;
+
+}
+
+.page {
+  height: 100vh;
+  background-image: linear-gradient(to top right, var(--main), #0b1a2c);
+  background-position: center;
+  background-repeat: no-repeat;
+
+
+}
