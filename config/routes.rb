@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'users#index'
+  root 'courses#index'
+
+  resources :courses, only: %i[index show new create]
+  resources :groups, only: %i[index show new create] do
+    resources :courses, only: %i[new create]
+  end
 end

@@ -1,28 +1,49 @@
-<h2>Sign up</h2>
+<div class="section">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-7">
 
-  <div class="form-inputs">
-    <%= f.input :name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "name" }%>
-    <%= f.input :email,
-                required: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+        <h2 class="title is-2">Sign up</h2>
+
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :name, required: true, autofocus: true %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :username, required: true %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :email, required: true %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :password_confirmation, required: true %>
+          </div>
+        </div>
+
+
+
+      <div class="form-actions d-flex justify-content-end mt-5">
+        <%= f.button :submit, "Sign up", class: 'button is-info is-medium' %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>

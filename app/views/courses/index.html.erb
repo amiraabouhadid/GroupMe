@@ -1,0 +1,29 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+
+      <div class="text-center p-5">
+
+          <% if user_signed_in? %>
+            <%= render 'profile' %>
+          <% else %>
+          <div class="p-5 mt-5">
+            <h1 class="text-light font-weight-bold">
+              <i class="fas fa-book"></i>
+              <br>
+              Course Groups</h1>
+          </div>
+          <div class="text-light">
+            <p>Create and group your courses!</p>
+          </div>
+
+          <div class="my-5">
+            <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-success w-75 my-4 p-2' %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary w-75 p-2'%>
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

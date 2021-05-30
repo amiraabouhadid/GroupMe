@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <div class="page text-light">
     <% if notice.present? %>
         <div class="notice p-2">
           <p>
@@ -27,6 +28,8 @@
           </p>
         </div>
       <% end %>
+
     <%= yield %>
+      </div>
   </body>
 </html>
