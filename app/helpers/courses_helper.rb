@@ -8,28 +8,41 @@ module CoursesHelper
   end
 
   def courses_html_template(course)
-    "<a href='/courses/#{course.id}'>
-      <div class='list-item'>
-      #{add_icon(course)}
-        <div class= 'list-text'>
-          <b class= 'course-name text-secondary'> #{course.name} </b>
-          <p class= 'course-date text-secondary'> #{course.created_at} </p>
-        </div>
-      <b class 'course-credit'> #{course.amount} hrs </b>
+    "<div class=' p-2 container'>
+      <div class=' bg-white border text-center mx-auto'>
+        <a href='/courses/#{course.id}' class='text-dark'>
+          <div class=' row p-3'>
+            <div class='col-3'>
+              #{add_icon(course)}
+            </div>
+            <div class= 'list-text col-6 text-left'>
+              <div class=' mt-2 container'>
+                <b class= 'course-name text-secondary row'> #{course.name} </b>
+                <br>
+                <b class= 'course-date text-muted small row align-items-end'>
+                #{course.created_at.strftime('%d %b %Y')}
+                </b>
+              </div>
+            </div>
+            <div class='course-credit col-3 mt-2 float-right'>
+              <b> #{course.amount} hrs </b>
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
+    </div>
     "
   end
 
-  def add_icon(course, size = '70')
+  def add_icon(course, size = '75')
     if course.groups.first
       if course.groups.first.icon == ''
-        image_tag('https://via.placeholder.com/70', size: size, alt: "#{course.name} icon")
+        image_tag('https://via.placeholder.com/75', size: size, alt: "#{course.name} icon")
       else
         image_tag(course.groups.first.icon, size: size, alt: "#{course.name} icon")
       end
     else
-      image_tag('https://via.placeholder.com/70', size: size, alt: 'un-groupped gift icon')
+      image_tag('https://via.placeholder.com/75', size: size, alt: 'un-grouped gift icon')
     end
   end
 

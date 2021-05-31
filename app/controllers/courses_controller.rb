@@ -3,11 +3,12 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @courses = if params['ungrouped']
-                 Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
-               else
+    @courses = if params[:grouped]
                  Course.where(author: current_user).includes(:courses_groups).where.not(courses_groups: { id: nil })
+               else
+                 Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
                end
+
     @user = User.find(current_user.id)
   end
 
@@ -41,7 +42,8 @@ class CoursesController < ApplicationController
         redirect_to @course
       end
     else
-      render :new
+      redirect_to courses_path
+      alert = 'Something went wrong, please try again later'
     end
   end
 
