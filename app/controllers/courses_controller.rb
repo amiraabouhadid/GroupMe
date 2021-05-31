@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
                else
                  Course.where(author: current_user).includes(:courses_groups).where.not(courses_groups: { id: nil })
                end
+    @user = User.find(current_user.id)
   end
 
   # GET /courses/1 or /courses/1.json

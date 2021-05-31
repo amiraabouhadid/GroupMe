@@ -1,16 +1,43 @@
-<div class="courses-container">
-  <div class="courses-header p-5">
-    <div class="c-h-1 text-light">
-      <div class="text-light">
-        <i class="fas fa-bars"></i>
-      </div>
-      <h6>COURSES</h6>
-      <div class="search-logo">
+<div class="courses-container ">
+  <div class="courses-header px-5 pt-5 pb-2">
+    <div class="c-h-1 mb-4 text-light d-flex row align-items-baseline justify-content-between">
+      <%= link_to user_path(current_user) do %>
+      <i class="fas fa-bars bars-icon text-light"></i>
+    <% end %>
+    <h5>COURSES</h5>
+    <i class="fas fa-search search-icon"></i>
+  </div>
 
-      </div>
+  <div class="c-h-2 ">
+    <div class=" d-flex row flex-nowrap justify-content-between w-100">
+
+      <%= link_to 'Courses', courses_path, class:'text-light ml-3 '%>
+
+      <%= link_to 'External', courses_path(:ungrouped => true), class:'text-light ml-3 '%>
+
+      <%= link_to 'Groups', groups_path, class:'text-light ml-3'%>
+
     </div>
-
 
   </div>
 
+</div>
+<div class="courses-content bg-light text-dark ">
+  <div class="p-2 border bg-white border-botom">
+    <div class="total-credit py-2 px-3 align-items-baseline d-flex row flex-nowrap justify-content-between">
+      <b class="text-secondary">Course credit</b>
+      <b><%= @courses.sum(:amount) %>
+        hrs</b>
+    </div>
+  </div>
+  <div class="grouped-courses mx-2 ">
+    <%= list_courses(@courses) %>
+  </div>
+  <div class="created-course p-3 bg-success">
+
+    <%= link_to 'ADD NEW', new_course_path, class: 'btn btn-success w-100 p-3 border border-light' %>
+
+  </div>
+
+</div>
 </div>

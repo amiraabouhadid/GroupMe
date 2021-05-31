@@ -14,25 +14,28 @@
  *= require_self
  */
 @import "bootstrap";
-:root {
-  --main: #3778c2;
 
+.courses-header{
+  height: 20%;
+  background-image: linear-gradient(to bottom left, #3778c2,  #275386);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .page {
   height: 100vh;
-  background-image: linear-gradient(to top right, var(--main), #0b1a2c);
+  background-image: linear-gradient(to top right, #3778c2, #0b1a2c);
   background-position: center;
   background-repeat: no-repeat;
+}
+.courses-content{
+  height: 100vh;
 }
 .profile-links-hr {
   border-color: lightgrey;
   border-bottom: 1px;
   opacity: 0.3;
 }
-.courses-header{
-  height: 100vh;
-  background-image: linear-gradient(to top right, var(--main), #0b1a2c);
-  background-position: center;
-  background-repeat: no-repeat;
+.bars-icon, .search-icon{
+  font-size: 1.25rem;
 }
