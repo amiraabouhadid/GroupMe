@@ -1,0 +1,38 @@
+<div class="courses-container ">
+  <div class="fixed-top">
+    <div class="courses-header  px-5 pt-5 pb-2">
+
+      <div class="c-h-1 mb-4 text-light d-flex row align-items-baseline justify-content-between">
+        <%= link_to user_path(current_user) do %>
+        <i class="fas fa-bars bars-icon text-light"></i>
+      <% end %>
+      <h5>GROUPS</h5>
+      <i class="fas fa-search search-icon"></i>
+    </div>
+    <%= render './courses/nav' %>
+  </div>
+  <div class="p-2 border bg-white border-botom w-100">
+    <div class="total-credit py-2 px-3 align-items-baseline d-flex row flex-nowrap justify-content-between">
+      <b class="text-secondary">Groups Total</b>
+      <b class="text-secondary"><%= @groups.count %>
+        </b>
+    </div>
+  </div>
+
+</div>
+<div class="courses-content pt-1 text-dark ">
+
+  <div class=" mx-2 column ">
+
+    <%= list_groups(@groups) %>
+
+  </div>
+  <div class="create-course p-4 bg-success  sticky-bottom">
+
+    <%= link_to 'ADD NEW', new_group_path, class: 'btn btn-success w-100 p-3 border border-light' %>
+
+  </div>
+
+</div>
+
+</div>

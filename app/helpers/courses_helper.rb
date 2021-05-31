@@ -46,9 +46,9 @@ module CoursesHelper
     end
   end
 
-  def show_form
-    if request.original_url.include?('groups')
-      render 'group-form'
+  def add_new_form
+    if request.referrer.to_s.include?('/courses?grouped=true')
+      render 'group_form'
     else
       render 'form'
     end

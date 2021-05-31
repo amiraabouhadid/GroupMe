@@ -17,26 +17,26 @@ class CoursesController < ApplicationController
   end
 
   def new
-    if request.original_url.include?('groups')
-      @group = Group.find(params[:group_id])
-      @course = @group.courses.new
+    if request.referrer.to_s.include?('/courses?grouped=true')
+      @groupedcourses = Group.find(group_params)
+      @course = @groupedcourses.courses.new
     else
       @course = Course.new
     end
   end
 
   def create
-    if request.original_url.include?('groups')
-      @group = Group.find(params[:group_id])
+    if request.referrer.to_s.include?('/courses?grouped=true')
+      @groupedcourses = Group.find(group_params)
       @course = Course.create(course_params)
-      @course.groups << @group
+      @course.groups << @groupedcourses
     else
       @course = Course.create(course_params)
     end
     @course.author = current_user
     if @course.save
       notice = 'Course successfully saved'
-      if request.original_url.include?('groups')
+      if request.referrer.to_s.include?('/courses?grouped=true')
         redirect_to @group
       else
         redirect_to @course
@@ -53,7 +53,11 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+  def group_params
+    params.require(:group).permit(:name, :icon, :created_at)
+  end
+
   def course_params
-    params.require(:course).permit(:name, :author, :amount, :group, :created_at)
+    params.require(:course).permit(:name, :author, :amount, :group_id, :created_at)
   end
 end
