@@ -13,7 +13,7 @@ module CoursesHelper
         <a href='/courses/#{course.id}' class='text-dark'>
           <div class=' row p-3'>
             <div class='col-3'>
-              #{add_icon(course)}
+              #{add_course_icon(course)}
             </div>
             <div class= 'list-text col-6 text-left'>
               <div class=' mt-2 container'>
@@ -34,8 +34,8 @@ module CoursesHelper
     "
   end
 
-  def add_icon(course, size = '75')
-    if course.groups.first
+  def add_course_icon(course, size = '75')
+    if course.groups.first.nil?
       if course.groups.first.icon == ''
         image_tag('https://via.placeholder.com/75', size: size, alt: "#{course.name} icon")
       else

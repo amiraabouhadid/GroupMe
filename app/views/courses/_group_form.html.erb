@@ -1,4 +1,4 @@
-<%= simple_form_for(@group, @group.courses.build) do |f| %>
+<%= simple_form_for(@course.groups) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 

@@ -13,7 +13,7 @@ module GroupsHelper
         <a href='/groups/#{group.id}' class='text-dark'>
           <div class=' row p-3'>
             <div class='col-3'>
-              #{add_icon(group)}
+              #{add_group_icon(group)}
             </div>
             <div class= 'list-text col-6 text-left'>
               <div class=' mt-2 container'>
@@ -36,12 +36,12 @@ module GroupsHelper
     "
   end
 
-  def add_icon(group, size = '75')
-    if group.groups.first
-      if group.groups.first.icon == ''
+  def add_group_icon(group, size = '75')
+    if group
+      if group.icon.nil?
         image_tag('https://via.placeholder.com/75', size: size, alt: "#{group.name} icon")
       else
-        image_tag(group.groups.first.icon, size: size, alt: "#{group.name} icon")
+        image_tag(group.icon, size: size, alt: "#{group.name} icon")
       end
     else
       image_tag('https://via.placeholder.com/75', size: size, alt: 'un-grouped gift icon')

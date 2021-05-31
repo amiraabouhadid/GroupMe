@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
 
   def new
     if request.referrer.to_s.include?('/courses?grouped=true')
-      @groupedcourses = Group.find(group_params)
+      @groupedcourses = Group.find_by(params[:group_id])
       @course = @groupedcourses.courses.new
     else
       @course = Course.new
@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
 
   def create
     if request.referrer.to_s.include?('/courses?grouped=true')
-      @groupedcourses = Group.find(group_params)
+      @groupedcourses = Group.find_by(params[:group_id])
       @course = Course.create(course_params)
       @course.groups << @groupedcourses
     else
@@ -51,10 +51,6 @@ class CoursesController < ApplicationController
 
   def set_course
     @course = Course.find(params[:id])
-  end
-
-  def group_params
-    params.require(:group).permit(:name, :icon, :created_at)
   end
 
   def course_params

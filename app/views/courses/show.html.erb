@@ -10,7 +10,7 @@
 
 
     <div class=" my-5">
-        <%= add_icon(@course) %>
+        <%= add_course_icon(@course) %>
         <br>
         <h6 class="my-3"><%= @course.name %></h6>
     </div>
@@ -35,7 +35,7 @@
       </tr>
       <tr>
         <th scope="row">Created at:</th>
-        <td><%= @course.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= @course.created_at.strftime("%d-%m-%Y") %></td>
       </tr>
     </tbody>
   </table>
