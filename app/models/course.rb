@@ -2,6 +2,5 @@ class Course < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   has_and_belongs_to_many :groups, optional: true
 
-  validates :amount, presence: true, uniqueness: true
-  validates :name, presence: true
+  validates :name, length: { maximum: 55 }, presence: true, uniqueness: true
 end

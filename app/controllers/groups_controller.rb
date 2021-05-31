@@ -4,8 +4,8 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = group.all.order('created_at DESC')
-    @group = group.new
+    @groups = Group.all.order(:name)
+    @group = Group.new
   end
 
   # GET /groups/1 or /groups/1.json
@@ -48,13 +48,6 @@ class GroupsController < ApplicationController
   end
 
   # DELETE /groups/1 or /groups/1.json
-  def destroy
-    @group.destroy
-    respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'group was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
 

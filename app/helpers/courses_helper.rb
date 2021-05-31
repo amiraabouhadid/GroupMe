@@ -21,15 +21,15 @@ module CoursesHelper
     "
   end
 
-  def add_icon(course, size = '50')
+  def add_icon(course, size = '70')
     if course.groups.first
       if course.groups.first.icon == ''
-        image_tag('https://via.placeholder.com/50', size: size, alt: "#{course.name} icon")
+        image_tag('https://via.placeholder.com/70', size: size, alt: "#{course.name} icon")
       else
         image_tag(course.groups.first.icon, size: size, alt: "#{course.name} icon")
       end
     else
-      image_tag('https://via.placeholder.com/50', size: size, alt: 'un-groupped gift icon')
+      image_tag('https://via.placeholder.com/70', size: size, alt: 'un-groupped gift icon')
     end
   end
 
