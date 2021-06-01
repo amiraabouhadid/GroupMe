@@ -1,22 +1,6 @@
 class Course < ApplicationRecord
-  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
-
-  has_many :courses_groups
-  has_many :groups, through: :courses_groups, class_name: 'Group', foreign_key: 'group_id'
-
-  validates :name, length: { maximum: 55 }, presence: true, uniqueness: true
-  validates :amount, presence: true
-
-  def add_grouped_course(group_id)
-    cg = CoursesGroup.where('group_id = ? AND course_id = ?', id, group_id).first
-    result = true
-    begin
-      ActiveRecord::Base.transaction do
-        cg.save!
-      end
-    rescue ActiveRecord::Rollback
-      result = false
-    end
-    result
-  end
+  belongs_to :user
+  belongs_to :group, optional: true
+  validates :name, presence: true, uniqueness: true, length: { minimum: 5, maximum: 20 }
+  validates :amount, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 1000.0 }
 end

@@ -35,30 +35,12 @@ module CoursesHelper
   end
 
   def add_course_icon(course, size = '75')
-    if course.groups.first
-      if course.groups.first.icon == ''
-        image_tag('https://via.placeholder.com/75', size: size, alt: "#{course.name} icon")
-      else
-        image_tag(course.groups.first.icon, size: size, alt: "#{course.name} icon")
-      end
-    else
+    if course.group.nil?
       image_tag('https://via.placeholder.com/75', size: size, alt: 'un-groupped gift icon')
-    end
-  end
-
-  def add_new_button
-    if request.url.to_s.include?('/courses?grouped=true')
-      render 'drop_down_button'
+    elsif course.group.icon.nil?
+      image_tag('https://via.placeholder.com/75', size: size, alt: "#{course.name} icon")
     else
-      render 'normal_add_button'
-    end
-  end
-
-  def add_new_form
-    if request.referrer.to_s.include?('/courses?grouped=true')
-      render 'group_form'
-    else
-      render 'form'
+      image_tag(course.group.icon, size: size, alt: "#{course.name} icon")
     end
   end
 end

@@ -37,15 +37,9 @@
         <th scope="row">Created at:</th>
         <td><%= @group.created_at.strftime("%d-%m-%Y") %></td>
       </tr>
-      <% if (@group.courses.first != nil) %>
-    <tr>
-      <th scope="row">Group:</th>
-      <td><%= @group.courses.first %></td>
-    </tr>
-    <% end %>
+    
     </tbody>
   </table>
   </div>
-  <%= link_to 'ADD NEW COURSE', new_group_course_path(@group), class:'btn btn-success w-100 p-3 border border-light' %>
 
 </div>

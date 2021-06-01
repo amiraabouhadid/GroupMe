@@ -4,13 +4,10 @@ class CoursesController < ApplicationController
 
   def index
     @courses = if params[:grouped]
-                 Course.where(author: current_user).includes(:courses_groups).where.not(courses_groups: { id: nil })
+                 current_user.courses.where.not(group_id: nil).includes(:group).all.order('created_at DESC')
                else
-                 Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
+                 current_user.courses.where(group_id: nil).includes(:group).all.order('created_at DESC')
                end
-    @grouped_courses = Course.where(author: current_user).includes(:courses_groups).where.not(courses_groups: { id: nil })
-    @ungrouped_courses = Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
-    @user = User.find(current_user.id)
   end
 
   def show
@@ -18,37 +15,23 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @grouped_courses = Course.where(author: current_user).includes(:courses_groups).where.not(courses_groups: { id: nil })
-    @ungrouped_courses = Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
+    @course = current_user.courses.build
+  end
 
-    if request.referrer.to_s.include?('/courses?grouped=true')
-      @course.groups.build
+  def edit; end
 
+  def create
+    @course = current_user.courses.build(course_params)
+    if @course.save
+      redirect_to courses_path, notice: 'Course was successfully created.'
     else
-      @course = Course.new
+      render :new, alert: 'Something went wrong try again.'
     end
   end
 
-  def create
-    if request.referrer.to_s.include?('/courses?grouped=true')
-      @group = Group.find_by(id: params[:group_id])
-      @course = Course.create(course_params)
-      @course.groups << @group
-    else
-      @course = Course.create(course_params)
-    end
-    @course.author = current_user
-    if @course.save
-      notice = 'Course successfully saved'
-      if request.referrer.to_s.include?('/courses?grouped=true')
-        redirect_to @group
-      else
-        redirect_to @course
-      end
-    else
-      redirect_to courses_path
-      alert = 'Something went wrong, please try again later'
-    end
+  def destroy
+    @course.destroy
+    redirect_to courses_url, notice: 'Course was successfully destroyed.'
   end
 
   private
@@ -58,6 +41,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:name, :author, :amount, :group_id, :created_at)
+    params.require(:course).permit(:name, :user_id, :amount, :group_id, :created_at)
   end
 end

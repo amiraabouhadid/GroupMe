@@ -10,31 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_144644) do
+ActiveRecord::Schema.define(version: 2021_06_01_173859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
-    t.string "name"
-    t.integer "amount"
+    t.string "name", null: false
+    t.integer "amount", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_courses_on_user_id"
-  end
-
-  create_table "courses_groups", force: :cascade do |t|
-    t.bigint "course_id"
     t.bigint "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id"], name: "index_courses_groups_on_course_id"
-    t.index ["group_id"], name: "index_courses_groups_on_group_id"
+    t.index ["group_id"], name: "index_courses_on_group_id"
+    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "icon"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -57,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_144644) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "courses", "courses", column: "user_id"
-  add_foreign_key "groups", "groups", column: "user_id"
+  add_foreign_key "courses", "groups"
+  add_foreign_key "courses", "users"
+  add_foreign_key "groups", "users"
 end

@@ -1,11 +1,12 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   def index
-    @groups = Group.all.order(:name)
+    @groups = Group.order(:name)
   end
 
   def new
-    @group = Group.new
+    @group = current_user.groups.build
   end
 
   def create
@@ -21,11 +22,21 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @group_courses = Course.where(group_id: params[:id]).all
+  end
+
+  def destroy
+    @group.destroy
+    redirect_to groups_url, notice: 'Group was successfully destroyed.'
   end
 
   private
 
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
   def group_params
-    params.require(:group).permit(:name, :user, :icon)
+    params.require(:group).permit(:name, :user_id, :icon)
   end
 end

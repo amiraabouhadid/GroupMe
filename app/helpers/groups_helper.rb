@@ -45,8 +45,4 @@ module GroupsHelper
       image_tag(group.icon, size: size, alt: "#{group.name} icon")
     end
   end
-
-  def show_form
-    render 'form'
-  end
 end
