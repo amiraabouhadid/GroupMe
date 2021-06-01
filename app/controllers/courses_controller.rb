@@ -3,10 +3,10 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @courses = if params[:grouped]
-                 current_user.courses.where.not(group_id: nil).includes(:group).all.order('created_at DESC')
-               else
+    @courses = if params[:ungrouped]
                  current_user.courses.where(group_id: nil).includes(:group).all.order('created_at DESC')
+               else
+                 current_user.courses.where.not(group_id: nil).includes(:group).all.order('created_at DESC')
                end
   end
 
