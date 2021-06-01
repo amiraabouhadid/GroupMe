@@ -1,0 +1,49 @@
+<div class="new-user-registration-section">
+
+  <div class="px-5 text-center">
+    <div class="py-5">
+      <div class="py-5">
+
+        <h2 class="text-light font-weight-bolder">SIGN UP</h2>
+
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :name, required: true, autofocus: true %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :username, required: true %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :email, required: true %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :password, required: true %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :password_confirmation, required: true %>
+          </div>
+        </div>
+
+
+
+      <div class="form-actions my-5">
+        <%= f.button :submit, "Sign up", class: 'btn btn-success w-100' %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+</div>
+</div>

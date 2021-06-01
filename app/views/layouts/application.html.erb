@@ -5,12 +5,31 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css' %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="page text-light">
+    <% if notice.present? %>
+        <div class="notice p-2">
+          <p>
+            <%= notice %>
+          </p>
+        </div>
+      <% end %>
+      <% if alert.present? %>
+        <div class="alert p-2">
+          <p>
+            <%= alert %>
+          </p>
+        </div>
+      <% end %>
+
     <%= yield %>
+      </div>
   </body>
 </html>
