@@ -1,4 +1,3 @@
-# rubocop: disable Lint/UselessAssignment
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
@@ -45,4 +44,3 @@ class CoursesController < ApplicationController
     params.require(:course).permit(:name, :user_id, :amount, :group_id, :created_at)
   end
 end
-# rubocop: enable Lint/UselessAssignment
