@@ -49,6 +49,8 @@
   opacity: 0.3;
 }
 
-.bars-icon, .search-icon, .arrow-icon {
+.bars-icon,
+.search-icon,
+.arrow-icon {
   font-size: 1.25rem;
 }
