@@ -13,8 +13,6 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";
-
 .courses-header {
   height: 20%;
   background-image: linear-gradient(to bottom left, #3778c2, #275386);
@@ -26,9 +24,10 @@
   height: 100vh;
   width: 100%;
 }
-.course-date{
-  opacity:0.8;
-  margin-bottom:0;
+
+.course-date {
+  opacity: 0.8;
+  margin-bottom: 0;
 }
 
 .page {
@@ -41,11 +40,8 @@
 .courses-content {
   height: 100vh;
   background-color: whitesmoke;
-
-  margin-top:190px;
+  margin-top: 190px;
   margin-bottom: 90px;
-
-
 }
 
 .profile-links-hr {
