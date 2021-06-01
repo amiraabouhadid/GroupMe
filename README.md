@@ -5,7 +5,8 @@
 A mobile grouping app that allows users to add courses, groups and courses to groups. Users can see a course's name, creation date, credit hours and group icon if the course belongs to a group. The group's name, icon, creation date and number of courses is also displayed. The total number of groups is displayed.
 ![Screenshot from 2021-06-01 22-03-10](https://user-images.githubusercontent.com/56790126/120383551-4d1ec300-c325-11eb-9f14-fc0d36a9c61c.png)
 ![Screenshot from 2021-06-01 22-00-43](https://user-images.githubusercontent.com/56790126/120383376-19dc3400-c325-11eb-9a20-876db603e969.png)
-![Screenshot from 2021-06-01 22-08-13](https://user-images.githubusercontent.com/56790126/120384086-01b8e480-c326-11eb-98aa-7fd3d8e23fad.png)
+![Screenshot from 2021-06-01 22-15-12](https://user-images.githubusercontent.com/56790126/120384836-f4e8c080-c326-11eb-8b9c-7fba3adaffa3.png)
+
 
 ## Live Demo
 
