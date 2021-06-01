@@ -22,10 +22,7 @@ class CoursesController < ApplicationController
     @ungrouped_courses = Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
 
     if request.referrer.to_s.include?('/courses?grouped=true')
-      @group = Group.find(params[:id])
-      debugger
-
-      @course = @group.courses.build
+      @course.groups.build
 
     else
       @course = Course.new

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :groups, only: %i[index show new create] do
     resources :courses, only: %i[new create]
   end
+  resources :courses_groups
 end

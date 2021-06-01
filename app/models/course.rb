@@ -2,7 +2,7 @@ class Course < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
   has_many :courses_groups
-  has_many :groups, through: :courses_groups
+  has_many :groups, through: :courses_groups, class_name: 'Group', foreign_key: 'group_id'
 
   validates :name, length: { maximum: 55 }, presence: true, uniqueness: true
   validates :amount, presence: true

@@ -57,6 +57,6 @@ ActiveRecord::Schema.define(version: 2021_06_01_144644) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "courses", "users"
-  add_foreign_key "groups", "users"
+  add_foreign_key "courses", "courses", column: "user_id"
+  add_foreign_key "groups", "groups", column: "user_id"
 end
