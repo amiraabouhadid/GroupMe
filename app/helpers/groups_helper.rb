@@ -15,7 +15,7 @@ module GroupsHelper
             <div class='col-3'>
               #{add_group_icon(group)}
             </div>
-            <div class= 'list-text col-6 text-left'>
+            <div class= 'list-text col-5 text-left'>
               <div class=' mt-2 container'>
                 <b class= 'group-name text-secondary row'>
                 #{group.name}
@@ -26,7 +26,7 @@ module GroupsHelper
                 </b>
               </div>
             </div>
-            <div class='group-credit col-3 mt-2 float-right'>
+            <div class='group-credit col-4 mt-2 float-right'>
               <b> Courses: #{group.courses.count} </b>
             </div>
           </div>
