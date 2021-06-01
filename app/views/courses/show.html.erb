@@ -37,6 +37,12 @@
         <th scope="row">Created at:</th>
         <td><%= @course.created_at.strftime("%d-%m-%Y") %></td>
       </tr>
+        <% if (@course.groups.first != nil) %>
+      <tr>
+        <th scope="row">Group:</th>
+        <td><%= @course.groups.first %></td>
+      </tr>
+      <% end %>
     </tbody>
   </table>
   </div>

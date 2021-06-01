@@ -8,7 +8,8 @@ class CoursesController < ApplicationController
                else
                  Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
                end
-
+    @grouped_courses = Course.where(author: current_user).includes(:courses_groups).where.not(courses_groups: { id: nil })
+    @ungrouped_courses = Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
     @user = User.find(current_user.id)
   end
 
@@ -17,9 +18,15 @@ class CoursesController < ApplicationController
   end
 
   def new
+    @grouped_courses = Course.where(author: current_user).includes(:courses_groups).where.not(courses_groups: { id: nil })
+    @ungrouped_courses = Course.where(author: current_user).includes(:courses_groups).where(courses_groups: { id: nil }).includes([:groups])
+
     if request.referrer.to_s.include?('/courses?grouped=true')
-      @groupedcourses = Group.find_by(params[:group_id])
-      @course = @groupedcourses.courses.new
+      @group = Group.find(params[:id])
+      debugger
+
+      @course = @group.courses.build
+
     else
       @course = Course.new
     end
@@ -27,9 +34,9 @@ class CoursesController < ApplicationController
 
   def create
     if request.referrer.to_s.include?('/courses?grouped=true')
-      @groupedcourses = Group.find_by(params[:group_id])
+      @group = Group.find_by(id: params[:group_id])
       @course = Course.create(course_params)
-      @course.groups << @groupedcourses
+      @course.groups << @group
     else
       @course = Course.create(course_params)
     end

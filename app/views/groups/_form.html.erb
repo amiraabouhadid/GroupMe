@@ -12,6 +12,11 @@
       <%= f.input :icon, required: true %>
     </div>
   </div>
+  <div class="field">
+    <div class="control">
+      <%= f.association :courses, as: :check_boxes %>
+    </div>
+  </div>
 
 
   <div class="form-actions my-5 ">

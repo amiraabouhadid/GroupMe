@@ -35,14 +35,17 @@ module CoursesHelper
   end
 
   def add_course_icon(course, size = '75')
-    if course.groups.first.nil?
-      if course.groups.first.icon == ''
+    if @grouped_courses.nil?
+      image_tag('https://via.placeholder.com/75', size: size, alt: 'un-grouped gift icon')
+    elsif @grouped_courses.include?(course)
+
+      if course.groups.icon != ''
         image_tag('https://via.placeholder.com/75', size: size, alt: "#{course.name} icon")
       else
         image_tag(course.groups.first.icon, size: size, alt: "#{course.name} icon")
       end
-    else
-      image_tag('https://via.placeholder.com/75', size: size, alt: 'un-grouped gift icon')
+
+
     end
   end
 

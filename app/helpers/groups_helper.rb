@@ -37,14 +37,12 @@ module GroupsHelper
   end
 
   def add_group_icon(group, size = '75')
-    if group
-      if group.icon.nil?
-        image_tag('https://via.placeholder.com/75', size: size, alt: "#{group.name} icon")
-      else
-        image_tag(group.icon, size: size, alt: "#{group.name} icon")
-      end
-    else
+    if group.nil?
       image_tag('https://via.placeholder.com/75', size: size, alt: 'un-grouped gift icon')
+    elsif group.icon.nil?
+      image_tag('https://via.placeholder.com/75', size: size, alt: "#{group.name} icon")
+    else
+      image_tag(group.icon, size: size, alt: "#{group.name} icon")
     end
   end
 
