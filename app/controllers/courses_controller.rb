@@ -24,9 +24,9 @@ class CoursesController < ApplicationController
   def create
     @course = current_user.courses.build(course_params)
     if @course.save
-      redirect_to courses_path, notice: 'Course was successfully created.'
+      redirect_to courses_path
     else
-      render :new, alert: 'Something went wrong try again.'
+      render :new
     end
   end
 
