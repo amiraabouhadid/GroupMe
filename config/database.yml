@@ -27,6 +27,6 @@ production:
   <<: *default
 
   adapter: postgresql
-  database: db/production
+  database: db/production.sqlite3
   username: postgres
   password: jinx/99B
