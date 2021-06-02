@@ -28,12 +28,12 @@
 .page {
   position: fixed;
   overflow: scroll;
-  bottom: 90;
+  bottom: 0;
   right: 0;
   left: 0;
   top: 0;
   height: 100vh;
-  background-image: linear-gradient(to top right, #3778c2, #0B1A2c);
+  background-image: linear-gradient(to top right, #3778c2, #0b1A2c);
   background-size: cover;
   background-repeat: no-repeat;
 }
