@@ -27,7 +27,6 @@
 
 .page {
   position: fixed;
-  overflow: auto;
   bottom: 0;
   right: 0;
   left: 0;
