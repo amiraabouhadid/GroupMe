@@ -10,7 +10,7 @@ A mobile grouping app that allows users to add courses, groups and courses to gr
 
 ## Live Demo
 
-[Live Demo Link](https://arcane-brook-55472.herokuapp.com/users/sign_in)
+[Live Demo Link](https://gentle-waters-43475.herokuapp.com/users/sign_in)
 
 ## Built With
 - Ruby
