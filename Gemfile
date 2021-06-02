@@ -10,6 +10,7 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'sqlite3', group: :development
 gem 'pg', '>= 0.18', '< 2.0', group: :production
 
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -35,6 +36,7 @@ gem 'bootstrap', '~> 5.0.0.beta3'
 gem 'devise'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'rails_12factor', group: :production
+gem 'bullet', group: 'development'
 
 gem 'simple_form', '~> 5.1'
 
