@@ -7,7 +7,6 @@ A mobile grouping app that allows users to add courses, groups and courses to gr
 ![Screenshot from 2021-06-01 22-00-43](https://user-images.githubusercontent.com/56790126/120383376-19dc3400-c325-11eb-9a20-876db603e969.png)
 ![Screenshot from 2021-06-01 22-15-12](https://user-images.githubusercontent.com/56790126/120384836-f4e8c080-c326-11eb-8b9c-7fba3adaffa3.png)
 
-
 ## Live Demo
 
 [Live Demo Link](https://gentle-waters-43475.herokuapp.com/users/sign_in)
