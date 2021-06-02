@@ -20,20 +20,21 @@
   background-repeat: no-repeat;
 }
 
-.new-sess-container {
-  height: 100vh;
-  width: 100%;
-}
-
 .course-date {
   opacity: 0.8;
   margin-bottom: 0;
 }
 
 .page {
+  position: fixed;
+  overflow: auto;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
   height: 100vh;
   background-image: linear-gradient(to top right, #3778c2, #0b1a2c);
-  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
