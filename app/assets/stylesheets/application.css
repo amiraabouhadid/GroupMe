@@ -27,7 +27,7 @@
 
 .page {
   position: fixed;
-  overflow: scroll;
+  overflow-y: scroll;
   bottom: 0;
   right: 0;
   left: 0;
