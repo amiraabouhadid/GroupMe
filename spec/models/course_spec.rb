@@ -53,7 +53,7 @@ feature 'Validation of course amount' do
   scenario 'User gets error message if invalid course amount is entered' do
     user = User.create!(name: 'amira', username: 'amira1', password: '123456',
                         email: 'amira@gmail.com')
-    course = ['hkjzvnvjdn sgrjdrogbn', 10000000]
+    course = ['hkjzvnvjdn sgrjdrogbn', 10_000_000]
 
     visit user_session_path
     fill_in 'user[name]', with: user.name

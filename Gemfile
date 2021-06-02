@@ -7,9 +7,8 @@ ruby '2.7.2'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
 gem 'pg', '>= 0.18', '< 2.0', group: :production
-
+gem 'sqlite3', group: :development
 
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -33,10 +32,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap', '~> 5.0.0.beta3'
 
+gem 'bullet', group: 'development'
 gem 'devise'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'rails_12factor', group: :production
-gem 'bullet', group: 'development'
 
 gem 'simple_form', '~> 5.1'
 
