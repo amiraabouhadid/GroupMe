@@ -26,9 +26,15 @@
 }
 
 .page {
+  position: fixed;
+  overflow: scroll;
+  bottom: 90;
+  right: 0;
+  left: 0;
+  top: 0;
   height: 100vh;
-  background-image: linear-gradient(to top right, #3778c2, #0b1a2c);
-  background-position: center;
+  background-image: linear-gradient(to top right, #3778C2, #0B1A2C);
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
