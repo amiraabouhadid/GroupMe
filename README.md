@@ -45,6 +45,7 @@ $ git clone git@github.com:amiraabouhadid/GroupMe.git.
 ```
 $ bundle install
 ```
+- Update ./config/database.yml with your local postgres username and password.
 
 - Setup database with:
 
