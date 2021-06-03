@@ -31,16 +31,16 @@
       </tr>
       <tr>
         <th scope="row">Author:</th>
-        <td><%= @course.author.name %></td>
+        <td><%= @course.user.name %></td>
       </tr>
       <tr>
         <th scope="row">Created at:</th>
         <td><%= @course.created_at.strftime("%d-%m-%Y") %></td>
       </tr>
-        <% if (@course.groups.first != nil) %>
+        <% if (@course.group != nil) %>
       <tr>
         <th scope="row">Group:</th>
-        <td><%= @course.groups.first %></td>
+        <td><%= @course.group.name %></td>
       </tr>
       <% end %>
     </tbody>
