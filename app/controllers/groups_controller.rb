@@ -22,7 +22,6 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @group_courses = Course.where(group_id: params[:id]).all
   end
 
   def destroy

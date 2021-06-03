@@ -32,21 +32,20 @@ To get a local copy up and running follow these simple example steps:
 
 ### Setup
 Clone repository from github to your local drive by following these steps:
-- Go to the main page of the repository
-- Above the listed files, click the green Code button
-- You can clone the repository using:
-  - GitHub CLI: gh repo clone amiraabouhadid/GroupMe.git.
-  - SSH:git clone git@github.com:amiraabouhadid/GroupMe.git.
-  - HTTPS:git clone https://github.com/amiraabouhadid/GroupMe.git.
 - Open Terminal.
 - Change the current working directory to the location you want the cloned directory.
-- Type one of the git clone commands listed above.
+- Enter the following:
+```
+$ git clone git@github.com:amiraabouhadid/GroupMe.git.
+
+```
 - Press Enter to create your local clone.
 - Install gems with:
 
 ```
 $ bundle install
 ```
+- Update ./config/database.yml with your local postgres username and password.
 
 - Setup database with:
 
