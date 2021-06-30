@@ -10,7 +10,7 @@ A grouping app that allows users to add courses, groups and courses to groups. U
 
 ## Live Demo
 
-[Live Demo Link](https://immense-garden-49874.herokuapp.com/users/sign_in)
+[Live Demo Link](https://group-my-courses.herokuapp.com/users/sign_in)
 
 ## Built With
 - Ruby
